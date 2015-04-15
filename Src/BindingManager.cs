@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using RSG.Utils;
+using RSG.Internal;
 
 namespace RSG
 {

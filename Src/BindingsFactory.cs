@@ -5,7 +5,11 @@ using System.Text;
 
 namespace RSG
 {
-    public class BindingsFactory
+    public class BindingsFactory : IBindingsFactory
     {
+        public IObjectPropertyBinding[] CreateObjectBindings(object obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
