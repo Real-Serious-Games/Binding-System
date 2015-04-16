@@ -57,9 +57,9 @@
     <Compile Include="BoundPropertyChangingEventArgs.cs" />
     <Compile Include="IBinding.cs" />
     <Compile Include="IBindingsFactory.cs" />
-    <Compile Include="IObjectPropertyBinding.cs" />
     <Compile Include="IValueBinding.cs" />
     <Compile Include="ObjectBinding.cs" />
+    <Compile Include="ObjectPropertyBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RxExts.cs" />
   </ItemGroup>
