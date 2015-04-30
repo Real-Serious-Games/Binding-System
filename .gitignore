@@ -1,2 +1,5 @@
 Tests/obj/
 Src/obj/
+Src/bin/
+Tests/bin/Debug/RSG.BindingSystem.dll
+Tests/bin/
