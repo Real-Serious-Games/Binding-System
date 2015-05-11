@@ -4,9 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
-namespace RSG.Internal
+namespace RSG
 {
-    public class ObservableList<T> : ObservableCollection<T>, ITypedList
+    public class ObservableList<T> : ObservableCollection<T>, ITypedList //fio:
     {
         public Type ItemType
         {
