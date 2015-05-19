@@ -18,7 +18,7 @@ namespace RSG
         public string PropertyName { get; private set; }
 
         /// <summary>
-        /// The binding to the item added.
+        /// The binding to the item added or removed.
         /// </summary>
         public IBinding Binding { get; private set; }
 

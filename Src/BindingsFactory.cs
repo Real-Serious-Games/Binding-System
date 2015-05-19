@@ -11,5 +11,15 @@ namespace RSG
         {
             throw new NotImplementedException();
         }
+
+        public IListItemBinding[] CreateListBindings(ITypedList list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IListItemBinding CreateListBinding(object item, int itemIndex, ITypedList list)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

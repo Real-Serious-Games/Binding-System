@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="BindableStreamTests.cs" />
     <Compile Include="BindingManagerTests.cs" />
+    <Compile Include="ListBindingTests.cs" />
     <Compile Include="ObjectBindingTests.cs" />
     <Compile Include="ObjectPropertyBindingTests.cs" />
     <Compile Include="ObservableList.cs" />

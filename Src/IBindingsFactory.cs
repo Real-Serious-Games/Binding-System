@@ -8,5 +8,9 @@ namespace RSG
     public interface IBindingsFactory
     {
         IObjectPropertyBinding[] CreateObjectBindings(object obj);
+
+        IListItemBinding[] CreateListBindings(ITypedList list);
+
+        IListItemBinding CreateListBinding(object item, int itemIndex, ITypedList list);
     }
 }
