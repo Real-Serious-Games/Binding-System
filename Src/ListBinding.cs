@@ -57,7 +57,7 @@ namespace RSG
         private BindableStream<BoundCollectionChangedEventArgs> collectionChangedOutputEventStream = new BindableStream<BoundCollectionChangedEventArgs>();
 
         /// <summary>
-        /// 
+        /// Stream of collection changed events.
         /// </summary>
         private Subject<BoundCollectionChangedEventArgs> listCollectionChangedEvents = new Subject<BoundCollectionChangedEventArgs>();
 
@@ -84,7 +84,7 @@ namespace RSG
         }
 
         /// <summary>
-        /// Event raised when a value in the binding tree has changed.
+        /// Stream of collection changed events.
         /// </summary>
         public IObservable<BoundCollectionChangedEventArgs> CollectionChangedEventStream
         {
