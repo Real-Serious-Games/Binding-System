@@ -8,5 +8,9 @@ namespace RSG
 {
     public interface ITypedList : IList
     {
+        /// <summary>
+        /// Specifies the type of items in the list.
+        /// </summary>
+        Type ItemType { get; }
     }
 }

@@ -57,7 +57,7 @@
     <Compile Include="BoundPropertyChangingEventArgs.cs" />
     <Compile Include="IBinding.cs" />
     <Compile Include="IBindingsFactory.cs" />
-    <Compile Include="IListItemBinding.cs" />
+    <Compile Include="ListItemBinding.cs" />
     <Compile Include="ITypedList.cs" />
     <Compile Include="IValueBinding.cs" />
     <Compile Include="ListBinding.cs" />
