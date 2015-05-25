@@ -75,11 +75,7 @@ namespace RSG
 
         public ListItemBinding(int itemIndex, ITypedList parentObj, IValueBinding valueBinding)
         {
-            if (itemIndex < 0)
-            {
-                throw new ArgumentException("Item index can't be less than 0.", "itemIndex");
-            }
-
+            Argument.Invariant(() => itemIndex, () => itemIndex >= 0);
             Argument.NotNull(() => parentObj);
             Argument.NotNull(() => valueBinding);
 
