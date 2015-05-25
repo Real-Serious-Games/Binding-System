@@ -54,7 +54,7 @@ namespace RSG
         /// <summary>
         /// Stream of collection changed events.
         /// </summary>
-        private BindableStream<BoundCollectionChangedEventArgs> collectionChangedOutputEventStream = new BindableStream<BoundCollectionChangedEventArgs>();
+        private BindableStream<BoundCollectionChangedEventArgs> collectionChangedEventStream = new BindableStream<BoundCollectionChangedEventArgs>();
 
         /// <summary>
         /// Stream of collection changed events.
@@ -90,7 +90,7 @@ namespace RSG
         {
             get
             {
-                return collectionChangedOutputEventStream;
+                return collectionChangedEventStream;
             }
         }
 
@@ -201,7 +201,7 @@ namespace RSG
             propertyChangedEventStream.Bind(Observable
                 .Merge(bindings.Select(b => b.PropertyChangedEventStream)));
 
-            collectionChangedOutputEventStream.Bind(Observable
+            collectionChangedEventStream.Bind(Observable
                 .Merge(bindings.Select(b => b.CollectionChangedEventStream))
                 .Merge(listCollectionChangedEvents));
         }
@@ -214,8 +214,7 @@ namespace RSG
             bindings.Each(b => b.Disconnect());
             bindings.Clear();
 
-
-            collectionChangedOutputEventStream.Unbind();
+            collectionChangedEventStream.Unbind();
             propertyChangedEventStream.Unbind();
             propertyChangingEventStream.Unbind();
 
