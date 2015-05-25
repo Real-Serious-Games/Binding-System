@@ -213,7 +213,7 @@ namespace RSG.Tests
         }
 
         [Fact]
-        public void test_BoundPropertyChanging_event_passed_on()
+        public void BoundPropertyChanging_event_passed_on()
         {
             Init();
 
@@ -237,7 +237,7 @@ namespace RSG.Tests
         }
 
         [Fact]
-        public void test_BoundPropertyChanged_event_passed_on()
+        public void BoundPropertyChanged_event_passed_on()
         {
             Init();
 
@@ -261,7 +261,7 @@ namespace RSG.Tests
         }
 
         [Fact]
-        public void test_BoundCollectionChanged_event_passed_on()
+        public void BoundCollectionChanged_event_passed_on()
         {
             Init();
 
