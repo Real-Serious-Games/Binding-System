@@ -21,5 +21,10 @@ namespace RSG
         {
             throw new NotImplementedException();
         }
+
+        public IArrayItemBinding[] CreateArrayBindings(Array array)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

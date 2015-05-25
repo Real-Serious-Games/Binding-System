@@ -12,5 +12,7 @@ namespace RSG
         IListItemBinding[] CreateListBindings(ITypedList list);
 
         IListItemBinding CreateListBinding(object item, int itemIndex, ITypedList list);
+
+        IArrayItemBinding[] CreateArrayBindings(Array array);
     }
 }
