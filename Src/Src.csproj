@@ -56,7 +56,7 @@
     <Compile Include="BoundCollectionChangedEventArgs.cs" />
     <Compile Include="BoundPropertyChangedEventArgs.cs" />
     <Compile Include="BoundPropertyChangingEventArgs.cs" />
-    <Compile Include="IArrayItemBinding.cs" />
+    <Compile Include="ArrayItemBinding.cs" />
     <Compile Include="IBinding.cs" />
     <Compile Include="IBindingsFactory.cs" />
     <Compile Include="ListItemBinding.cs" />

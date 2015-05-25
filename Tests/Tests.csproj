@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayBindingTests.cs" />
+    <Compile Include="ArrayItemBindingTests.cs" />
     <Compile Include="BindableStreamTests.cs" />
     <Compile Include="BindingManagerTests.cs" />
     <Compile Include="ListBindingTests.cs" />
