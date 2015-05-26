@@ -56,14 +56,12 @@
     <Compile Include="BoundCollectionChangedEventArgs.cs" />
     <Compile Include="BoundPropertyChangedEventArgs.cs" />
     <Compile Include="BoundPropertyChangingEventArgs.cs" />
-    <Compile Include="ArrayItemBinding.cs" />
     <Compile Include="IBinding.cs" />
     <Compile Include="INotifyCollectionChanged.cs" />
     <Compile Include="ListItemBinding.cs" />
     <Compile Include="ITypedList.cs" />
     <Compile Include="IValueBinding.cs" />
     <Compile Include="ListBinding.cs" />
-    <Compile Include="ListItemBinding.cs" />
     <Compile Include="NotifyCollectionChangedEventArgs.cs" />
     <Compile Include="ObjectBinding.cs" />
     <Compile Include="ObjectPropertyBinding.cs" />
