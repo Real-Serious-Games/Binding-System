@@ -50,7 +50,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
     <Reference Include="xunit">
       <HintPath>..\dlls\xunit.dll</HintPath>
     </Reference>
@@ -60,11 +59,9 @@
     <Compile Include="ArrayItemBindingTests.cs" />
     <Compile Include="BindableStreamTests.cs" />
     <Compile Include="BindingManagerTests.cs" />
-    <Compile Include="ListBindingTests.cs" />
     <Compile Include="ListItemBindingTests.cs" />
     <Compile Include="ObjectBindingTests.cs" />
     <Compile Include="ObjectPropertyBindingTests.cs" />
-    <Compile Include="ObservableList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

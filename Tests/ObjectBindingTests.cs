@@ -40,8 +40,6 @@ namespace RSG.Tests
                 }
             }
 
-            private int[] c;
-
             public event PropertyChangedEventHandler PropertyChanged;
 
             public event PropertyChangingEventHandler PropertyChanging;

@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Text;
+using RSG;
 
 namespace RSG.Internal
 {
@@ -45,7 +46,7 @@ namespace RSG.Internal
         public static IObservable<NotifyCollectionChangedEventArgs> OnAnyCollectionChanges<T>(this T source)
             where T : INotifyCollectionChanged
         {
-            return Observable.FromEventPattern<NotifyCollectionChangedEventHandler, NotifyCollectionChangedEventArgs>(
+            return Observable.FromEventPattern<EventHandler<NotifyCollectionChangedEventArgs>, NotifyCollectionChangedEventArgs>(
                 handler => handler.Invoke,
                 h => source.CollectionChanged += h,
                 h => source.CollectionChanged -= h
