@@ -1,10 +1,9 @@
 ﻿using Moq;
+using RSG.Internal;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Reactive.Subjects;
-using System.Text;
 using Xunit;
 
 namespace RSG.Tests
