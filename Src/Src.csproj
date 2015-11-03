@@ -59,7 +59,6 @@
     <Compile Include="IBinding.cs" />
     <Compile Include="INotifyCollectionChanged.cs" />
     <Compile Include="ListItemBinding.cs" />
-    <Compile Include="ITypedList.cs" />
     <Compile Include="IValueBinding.cs" />
     <Compile Include="ListBinding.cs" />
     <Compile Include="NotifyCollectionChangedEventArgs.cs" />

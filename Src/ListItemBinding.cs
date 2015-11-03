@@ -1,5 +1,6 @@
 ﻿using RSG.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace RSG
         /// <summary>
         /// The list that bindings are managed for.
         /// </summary>
-        private ITypedList parentList;
+        private IList parentList;
 
         /// <summary>
         /// The value binding that is named.
@@ -73,7 +74,7 @@ namespace RSG
             }
         }
 
-        public ListItemBinding(int itemIndex, ITypedList parentObj, IValueBinding valueBinding)
+        public ListItemBinding(int itemIndex, IList parentObj, IValueBinding valueBinding)
         {
             Argument.Invariant(() => itemIndex, () => itemIndex >= 0);
             Argument.NotNull(() => parentObj);
@@ -108,7 +109,7 @@ namespace RSG
         {
             get
             {
-                return this.parentList.ItemType;
+                return this.parentList[this.ItemIndex].GetType();
             }
         }
 
@@ -121,7 +122,7 @@ namespace RSG
 
             Disconnect();
 
-            this.parentList = (ITypedList)parentObj;
+            this.parentList = (IList)parentObj;
 
             // 
             // Rebind if non-null.

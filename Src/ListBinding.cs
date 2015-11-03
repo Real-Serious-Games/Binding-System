@@ -1,6 +1,7 @@
 ﻿using RSG.Internal;
 using RSG.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace RSG
         /// <summary>
         /// The object that bindings are managed for.
         /// </summary>
-        private ITypedList list;
+        private IList list;
 
         /// <summary>
         /// Factory used to create child bindings.
@@ -94,7 +95,7 @@ namespace RSG
             }
         }
 
-        public ListBinding(ITypedList list, IBindingsFactory bindingsFactory)
+        public ListBinding(IList list, IBindingsFactory bindingsFactory)
         {
             Argument.NotNull(() => list);
             Argument.NotNull(() => bindingsFactory);
@@ -116,7 +117,7 @@ namespace RSG
                 Disconnect();
             }
 
-            this.list = (ITypedList)list;
+            this.list = (IList)list;
             this.previousCollectionContent = this.list.Cast<object>().ToArray();
             this.bindings = bindingsFactory.CreateListBindings(this.list).ToList();
 

@@ -22,12 +22,12 @@ namespace RSG.Internal
         /// <summary>
         /// Build list item bindings for the particular collection.
         /// </summary>
-        IListItemBinding[] CreateListBindings(ITypedList list);
+        IListItemBinding[] CreateListBindings(IList list);
 
         /// <summary>
         /// Create binding for an item in a list.
         /// </summary>
-        IListItemBinding CreateListBinding(object item, int itemIndex, ITypedList list);
+        IListItemBinding CreateListBinding(object item, int itemIndex, IList list);
 
         /// <summary>
         /// Build array item bindings for the particular array.
@@ -86,7 +86,7 @@ namespace RSG.Internal
         /// <summary>
         /// Build list item bindings for the particular collection.
         /// </summary>
-        public IListItemBinding[] CreateListBindings(ITypedList list)
+        public IListItemBinding[] CreateListBindings(IList list)
         {
             if (list == null)
             {
@@ -111,9 +111,9 @@ namespace RSG.Internal
         /// <summary>
         /// Create binding for an item in a list.
         /// </summary>
-        public IListItemBinding CreateListBinding(object item, int itemIndex, ITypedList list)
+        public IListItemBinding CreateListBinding(object item, int itemIndex, IList list)
         {
-            return new ListItemBinding(itemIndex, list, CreateValueBinding(list, item, list.ItemType));
+            return new ListItemBinding(itemIndex, list, CreateValueBinding(list, item, item.GetType()));
         }
 
         /// <summary>
@@ -188,9 +188,9 @@ namespace RSG.Internal
                 {
                     valueBinding = new ArrayBinding((Array)value, this);
                 }
-                else if (value is ITypedList)
+                else if (value is IList)
                 {
-                    valueBinding = new ListBinding((ITypedList)value, this);
+                    valueBinding = new ListBinding((IList)value, this);
                 }
                 else
                 {

@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace RSG
 {
-    public class ObservableCollection<T> : IList<T>, INotifyCollectionChanged
+    public class ObservableCollection<T> : IList<T>, IList, INotifyCollectionChanged
     {
         /// <summary>
         /// Inner (non-obsevable) list.
@@ -80,6 +81,42 @@ namespace RSG
             }
         }
 
+        public bool IsFixedSize
+        {
+            get
+            {
+                return true;
+            }
+        }
+
+        public object SyncRoot
+        {
+            get
+            {
+                return this;
+            }
+        }
+
+        public bool IsSynchronized
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        object IList.this[int index]
+        {
+            get
+            {
+                return innerList[index];
+            }
+            set
+            {
+                innerList[index] = (T)value;
+            }
+        }
+
         public bool Remove(T item)
         {
             return innerList.Remove(item);
@@ -93,6 +130,37 @@ namespace RSG
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return innerList.GetEnumerator();
+        }
+
+        public int Add(object item)
+        {
+            innerList.Add((T)item);
+            return innerList.Count - 1;
+        }
+
+        public bool Contains(object item)
+        {
+            return innerList.Contains((T)item);
+        }
+
+        public int IndexOf(object item)
+        {
+            return innerList.IndexOf((T)item);
+        }
+
+        public void Insert(int index, object item)
+        {
+            innerList.Insert(index, (T)item);
+        }
+
+        public void Remove(object item)
+        {
+            innerList.Remove((T)item);
+        }
+
+        public void CopyTo(Array array, int index)
+        {
+            innerList.CopyTo((T[])array, index);
         }
     }
 }
