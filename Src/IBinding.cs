@@ -5,6 +5,10 @@ using System.Text;
 
 namespace RSG
 {
+    /// <summary>
+    /// Bind to a property of an object or an element in a list or an array.
+    /// Receive notifications when the value changes, or when the value of a nested binding changes.
+    /// </summary>
     public interface IBinding
     {
         /// <summary>

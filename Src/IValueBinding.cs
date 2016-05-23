@@ -6,7 +6,8 @@ using System.Text;
 namespace RSG
 {
     /// <summary>
-    /// Maintains bindings for a value.
+    /// Binds to a value. 
+    /// The value might be a primitive value, an object, an array or a list.
     /// </summary>
     public interface IValueBinding
     {
