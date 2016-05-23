@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 
 namespace RSG.Internal
@@ -11,38 +12,43 @@ namespace RSG.Internal
 
         public PrimitiveBinding(object value)
         {
-            // TODO: Complete member initialization
-            this.value = value;
         }
 
         public IObservable<BoundPropertyChangingEventArgs> PropertyChangingEventStream
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                return Observable.Empty<BoundPropertyChangingEventArgs>();
+            }
         }
 
         public IObservable<BoundPropertyChangedEventArgs> PropertyChangedEventStream
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                return Observable.Empty<BoundPropertyChangedEventArgs>();
+            }
         }
 
         public IObservable<BoundCollectionChangedEventArgs> CollectionChangedEventStream
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                return Observable.Empty<BoundCollectionChangedEventArgs>();
+            }
         }
 
         public void Connect(object obj)
         {
-            throw new NotImplementedException();
         }
 
         public void Disconnect()
         {
-            throw new NotImplementedException();
         }
 
         public IBinding FindNestedBinding(string bindingName)
         {
-            throw new NotImplementedException();
+            throw new ApplicationException("Shouldn't get here! Attempting to resolve nested binding: " + bindingName);
         }
     }
 }

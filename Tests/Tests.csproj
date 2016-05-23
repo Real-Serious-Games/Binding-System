@@ -59,11 +59,10 @@
     <Compile Include="ArrayBindingTests.cs" />
     <Compile Include="ArrayItemBindingTests.cs" />
     <Compile Include="BindableStreamTests.cs" />
-    <Compile Include="BindingManagerTests.cs" />
-    <Compile Include="IntegrationTests.cs" />
     <Compile Include="ListItemBindingTests.cs" />
     <Compile Include="ObjectBindingTests.cs" />
     <Compile Include="ObjectPropertyBindingTests.cs" />
+    <Compile Include="PrimitiveBindingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
