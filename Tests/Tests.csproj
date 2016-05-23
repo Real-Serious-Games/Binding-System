@@ -60,7 +60,7 @@
     <Compile Include="ArrayItemBindingTests.cs" />
     <Compile Include="BindableStreamTests.cs" />
     <Compile Include="BindingManagerTests.cs" />
-    <Compile Include="IntergrationTests.cs" />
+    <Compile Include="IntegrationTests.cs" />
     <Compile Include="ListItemBindingTests.cs" />
     <Compile Include="ObjectBindingTests.cs" />
     <Compile Include="ObjectPropertyBindingTests.cs" />
