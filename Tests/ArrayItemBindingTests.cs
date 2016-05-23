@@ -45,9 +45,9 @@ namespace RSG.Tests
             mockValueBinding = new Mock<IValueBinding>();
         }
 
-        private void InitTestObject(int lenthOfArray, int index)
+        private void InitTestObject(int lengthOfArray, int index)
         {
-            testArray = Enumerable.Range(0, lenthOfArray)
+            testArray = Enumerable.Range(0, lengthOfArray)
                 .Select(i => new TestClass())
                 .ToArray();
 
