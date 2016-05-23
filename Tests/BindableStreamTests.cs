@@ -20,38 +20,19 @@ namespace RSG.Tests
         }
 
         [Fact]
-        public void subscribing_to_bindablestream_doesnt_throw_exception()
+        public void doesnt_receive_before_binding()
         {
             Init();
 
             int testInt = 0;
 
-            Assert.DoesNotThrow(() =>
-            {
-                testObject.Subscribe(i =>
-                {
-                    testInt += i;
-                });
-            });
-        }
-
-        [Fact]
-        public void subscribing_to_bindablestream_does_not_receive_without_being_bound()
-        {
-            Init();
-
-            int testInt = 0;
-
-            testObject.Subscribe(i =>
-            {
-                testInt += i;
-            });
+            testObject.Subscribe(i => testInt += i);
 
             Assert.Equal(0, testInt);
         }
 
         [Fact]
-        public void binding_to_bindablestream_after_subscribing_receives()
+        public void receives_on_binding_before_subscribing()
         {
             Init();
 
@@ -61,14 +42,70 @@ namespace RSG.Tests
 
             testObject.Bind(eventStream);
 
-            testObject.Subscribe(i =>
-                {
-                    testInt += 1;
-                });
+            testObject.Subscribe(i => testInt += 1);
 
             eventStream.OnNext(1);
 
             Assert.Equal(1, testInt);
+        }
+
+        [Fact]
+        public void receives_on_binding_after_subscribing()
+        {
+            Init();
+
+            int testInt = 0;
+
+            var eventStream = new Subject<int>();
+
+            testObject.Subscribe(i => testInt += 1);
+
+            testObject.Bind(eventStream);
+
+            eventStream.OnNext(1);
+
+            Assert.Equal(1, testInt);
+        }
+
+        [Fact]
+        public void stops_receiving_after_unbinding()
+        {
+            Init();
+
+            int testInt = 0;
+
+            var eventStream = new Subject<int>();
+
+            testObject.Bind(eventStream);
+
+            testObject.Subscribe(i => testInt += 1);
+
+            testObject.Unbind();
+
+            eventStream.OnNext(1);
+
+            Assert.Equal(0, testInt);
+        }
+
+        [Fact]
+        public void stops_receiving_after_unsubscribe()
+        {
+            Init();
+
+            int testInt = 0;
+
+            var eventStream = new Subject<int>();
+
+            testObject.Bind(eventStream);
+
+            using (testObject.Subscribe(i => testInt += 1))
+            {
+                // Disposed after using statement which unsubscribes.
+            }
+
+            eventStream.OnNext(1);
+
+            Assert.Equal(0, testInt);
         }
     }
 }
