@@ -29,15 +29,15 @@ namespace RSG.Tests
             InitTestObject(testArray);
         }
 
-        private void InitMocks(int numOfTestClasses)
+        private void InitMocks(int numArrayElements)
         {
             mockBindingsFactory = new Mock<IBindingsFactory>();
 
-            testArray = Enumerable.Range(0, numOfTestClasses)
+            testArray = Enumerable.Range(0, numArrayElements)
                 .Select(i => new TestClass())
                 .ToArray();
 
-            mockArrayItemBindings = Enumerable.Range(0, numOfTestClasses)
+            mockArrayItemBindings = Enumerable.Range(0, numArrayElements)
                 .Select(i => 
                 {
                     var mockBinding = new Mock<IArrayItemBinding>();
@@ -67,7 +67,6 @@ namespace RSG.Tests
 
             Assert.Equal(mockArrayItemBindings[0].Object, testObject.FindNestedBinding("0"));
         }
-
 
         [Fact]
         public void find_nested_item_binding()
