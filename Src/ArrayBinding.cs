@@ -73,7 +73,6 @@ namespace RSG
             }
         }
 
-        /// <summary>
         public ArrayBinding(Array array, IBindingsFactory bindingsFactory)
         {
             Argument.NotNull(() => array);
@@ -84,7 +83,8 @@ namespace RSG
             Connect(array);
         }
 
-        /// Reattach the property to the property in the specified object.
+        /// <summary>
+        /// Connect the binding to an array.
         /// </summary>
         public void Connect(object obj)
         {
@@ -112,7 +112,7 @@ namespace RSG
         }
 
         /// <summary>
-        /// Disconnected events from the bound property.
+        /// Disconnect the binding from an array.
         /// </summary>
         public void Disconnect()
         {
