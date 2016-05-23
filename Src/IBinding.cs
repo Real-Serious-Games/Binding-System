@@ -27,7 +27,7 @@ namespace RSG
         IObservable<BoundCollectionChangedEventArgs> CollectionChangedEventStream { get; }
 
         /// <summary>
-        /// The value of the binding.
+        /// The binding to the value of the property or array/list element.
         /// </summary>
         IValueBinding ValueBinding { get; }
 

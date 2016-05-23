@@ -8,33 +8,33 @@ using System.Text;
 namespace RSG
 {
     /// <summary>
-    /// A binding to an item in an array.
+    /// A binding to an element in an array.
     /// </summary>
     public interface IArrayItemBinding : IBinding
     {
         /// <summary>
-        /// The index of the bound list item.
+        /// The index of the bound array element.
         /// </summary>
         int ItemIndex { get; set; }
     }
 
     /// <summary>
-    /// A binding to an item in a list.
+    /// A binding to an element in an array.
     /// </summary>
     public class ArrayItemBinding : IArrayItemBinding
     {
         /// <summary>
-        /// The index of the bound list item.
+        /// The index of the bound array element.
         /// </summary>
         public int ItemIndex { get; set; }
 
         /// <summary>
-        /// The list that bindings are managed for.
+        /// The array that contains element that is bound.
         /// </summary>
         private Array parentArray;
 
         /// <summary>
-        /// The value binding that is named.
+        /// The binding to the array element's value.
         /// </summary>
         public IValueBinding ValueBinding { get; private set; }
 
