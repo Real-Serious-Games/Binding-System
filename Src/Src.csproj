@@ -64,7 +64,6 @@
     <Compile Include="NotifyCollectionChangedEventArgs.cs" />
     <Compile Include="ObjectBinding.cs" />
     <Compile Include="ObjectPropertyBinding.cs" />
-    <Compile Include="ObservableCollection.cs" />
     <Compile Include="ObservableList.cs" />
     <Compile Include="PrimitiveBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
