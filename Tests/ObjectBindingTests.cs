@@ -569,7 +569,7 @@ namespace RSG.Tests
 
             testObject.CollectionChangedEventStream.Subscribe(ev => events.Add(ev));
 
-            var fakeCollectionChangedEventArgs = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset);
+            var fakeCollectionChangedEventArgs = new NotifyCollectionChangedEventArgs();
             childEventStream.OnNext(new BoundCollectionChangedEventArgs(propertyName, fakeCollectionChangedEventArgs, null, null));
 
             Assert.Equal(1, events.Count);
@@ -594,7 +594,7 @@ namespace RSG.Tests
 
             testObject.Disconnect();
 
-            var fakeCollectionChangedEventArgs = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset);
+            var fakeCollectionChangedEventArgs = new NotifyCollectionChangedEventArgs();
             childEventStream.OnNext(new BoundCollectionChangedEventArgs(propertyName, fakeCollectionChangedEventArgs, null, null));
 
             Assert.Empty(events);
@@ -617,7 +617,7 @@ namespace RSG.Tests
 
             testObject.Disconnect();
 
-            var fakeCollectionChangedEventArgs = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset);
+            var fakeCollectionChangedEventArgs = new NotifyCollectionChangedEventArgs();
             childEventStream.OnNext(new BoundCollectionChangedEventArgs(propertyName, fakeCollectionChangedEventArgs, null, null));
 
             Assert.Empty(events);

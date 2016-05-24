@@ -27,11 +27,23 @@ namespace RSG
         public void Insert(int index, T item)
         {
             innerList.Insert(index, item);
+
+            if (CollectionChanged != null)
+            {
+                CollectionChanged(this, NotifyCollectionChangedEventArgs.ItemAdded(item, index));
+            }
         }
 
         public void RemoveAt(int index)
         {
+            var item = innerList[index];
+
             innerList.RemoveAt(index);
+
+            if (CollectionChanged != null)
+            {
+                CollectionChanged(this, NotifyCollectionChangedEventArgs.ItemRemoved(item, index));
+            }
         }
 
         public T this[int index]
@@ -48,12 +60,26 @@ namespace RSG
 
         public void Add(T item)
         {
+            var newIndex = innerList.Count;
+
             innerList.Add(item);
+
+            if (CollectionChanged != null)
+            {
+                CollectionChanged(this, NotifyCollectionChangedEventArgs.ItemAdded(item, newIndex));
+            }
         }
 
         public void Clear()
         {
+            var oldItems = innerList.Cast<object>().ToArray();
+
             innerList.Clear();
+
+            if (CollectionChanged != null)
+            {
+                CollectionChanged(this, NotifyCollectionChangedEventArgs.Reset(oldItems));
+            }
         }
 
         public bool Contains(T item)
@@ -120,7 +146,15 @@ namespace RSG
 
         public bool Remove(T item)
         {
-            return innerList.Remove(item);
+            var index = innerList.IndexOf(item);
+            var result = innerList.Remove(item);
+
+            if (result && CollectionChanged != null)
+            {
+                CollectionChanged(this, NotifyCollectionChangedEventArgs.ItemRemoved(item, index));
+            }
+
+            return result;
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -135,7 +169,15 @@ namespace RSG
 
         public int Add(object item)
         {
+            var newIndex = innerList.Count;
+
             innerList.Add((T)item);
+
+            if (CollectionChanged != null)
+            {
+                CollectionChanged(this, NotifyCollectionChangedEventArgs.ItemAdded(item, newIndex));
+            }
+
             return innerList.Count - 1;
         }
 
@@ -152,11 +194,22 @@ namespace RSG
         public void Insert(int index, object item)
         {
             innerList.Insert(index, (T)item);
+
+            if (CollectionChanged != null)
+            {
+                CollectionChanged(this, NotifyCollectionChangedEventArgs.ItemAdded(item, index));
+            }
         }
 
         public void Remove(object item)
         {
-            innerList.Remove((T)item);
+            var index = innerList.IndexOf((T)item);
+            var result = innerList.Remove((T)item);
+
+            if (result && CollectionChanged != null)
+            {
+                CollectionChanged(this, NotifyCollectionChangedEventArgs.ItemRemoved(item, index));
+            }
         }
 
         public void CopyTo(Array array, int index)

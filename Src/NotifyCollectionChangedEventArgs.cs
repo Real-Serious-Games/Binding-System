@@ -55,10 +55,34 @@ namespace RSG
         //     Remove, or Replace action occurred.
         public int OldStartingIndex { get; private set; }
 
-        public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action)
+        public static NotifyCollectionChangedEventArgs ItemAdded(object item, int index)
         {
-            this.Action = action;
+            return new NotifyCollectionChangedEventArgs()
+            {
+                Action = NotifyCollectionChangedAction.Add,
+                NewItems = new object[] { item },
+                NewStartingIndex = index,
+            };
         }
 
+        public static NotifyCollectionChangedEventArgs ItemRemoved(object item, int index)
+        {
+            return new NotifyCollectionChangedEventArgs()
+            {
+                Action = NotifyCollectionChangedAction.Remove,
+                OldItems = new object[] { item },
+                OldStartingIndex = index,
+            };
+        }
+
+        public static NotifyCollectionChangedEventArgs Reset(object[] items)
+        {
+            return new NotifyCollectionChangedEventArgs()
+            {
+                Action = NotifyCollectionChangedAction.Reset,
+                OldItems = items,
+                OldStartingIndex = 0,
+            };
+        }
     }
 }

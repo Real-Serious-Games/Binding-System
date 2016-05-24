@@ -241,7 +241,7 @@ namespace RSG.Tests
             var events = new List<BoundCollectionChangedEventArgs>();
             testObject.CollectionChangedEventStream.Subscribe(ev => events.Add(ev));
 
-            var fakeCollectionChangedEventArgs = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset);
+            var fakeCollectionChangedEventArgs = new NotifyCollectionChangedEventArgs();
             childEventStream.OnNext(new BoundCollectionChangedEventArgs("Nested", fakeCollectionChangedEventArgs, null, null));
 
             Assert.Equal(1, events.Count);
